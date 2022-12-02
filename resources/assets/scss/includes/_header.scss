@@ -1,0 +1,57 @@
+
+#nav{
+    padding: 0px 0px 0px 0px;
+    header {
+        background-color: $orange;
+        padding: 0px 0px 0px 0px;
+        .navbar{
+            padding: 0px;
+            background-color: $orange;
+            .navbar-toggler{
+                border: 1px solid #000;
+                span{
+                    background: url(images/br_menu.png) no-repeat center center;
+                }
+            }
+            .navbar-nav{
+                padding: 0;
+                margin-bottom: 0;
+                list-style: none;
+                .nav-item{
+                    margin: 0px 10px 0px 10px;
+                    &.mn_signin{
+                        .nav-link{
+                            background:url(images/signin.svg) no-repeat left 25px center;
+                            background-color: $white!important;
+                            color: $menuColor;
+                            border-radius: 0;
+                            line-height: 22px;
+                            padding: 19px 24px 19px 59px;
+                            text-align: left;
+                        }
+                    }
+                    &.mn_cart{
+                        .nav-link{
+                            background:url(images/cart.svg) no-repeat left 25px center;
+                            color: $menuColor;
+                            border-radius: 0;
+                            line-height: 82px;
+                            padding: 0px 10px 0px 59px;
+                            text-align: left;
+                        }
+                    }
+                    
+                    .nav-link{
+                        color: $menuColor;
+                        font-size: 16px;
+                        padding: 0px 10px 0px 10px;
+                        line-height: 40px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        
+
+    }
+}

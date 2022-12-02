@@ -1,0 +1,68 @@
+.button-common{
+    height: 40px;
+    line-height: 40px; 
+    text-align: center;
+    border-radius: 4px;
+    background-color: $primary-color;
+    color: $white;
+    &:hover{
+        color: $white;
+    }
+}
+.button-common2{
+    height: 35px;
+    line-height: 35px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: $dark3;
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    
+}
+.button-common3{
+    height: 41px;
+    line-height: 41px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: $dark3;
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    
+}
+.button-tranparent{
+    height: 31px;
+    line-height: 31px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    border: 2px solid $primary-color;
+    &:hover{
+        color: $white;
+    }
+    
+}
+
+.product-button{
+    height: 46px;
+    line-height: 46px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    
+}

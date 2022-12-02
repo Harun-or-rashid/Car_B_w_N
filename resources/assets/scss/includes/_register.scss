@@ -1,0 +1,129 @@
+
+.register-area{
+    padding: 50px 0px 50px 0px;
+    .rigister-wrapper{
+        @include float-css;
+        background-color: $dark;
+        padding: 30px 30px 30px 30px;
+        margin: 0px 0px 0px 0px;
+        .rigister-wrapper_inner{
+            max-width: 723px;
+            width: 100%;
+            margin: 0 auto;
+            h2{
+                margin: 0px 0px 60px 0px;
+                font-size: 28px; 
+                line-height: 38px;
+                font-weight: 700;
+                color: $orange3;
+                text-align: center;
+            }
+            .form-section{
+                .input_group{
+                    @include float-css;
+                    .custom-label{
+                        @include common-label;
+                    }
+                    .cm_input{
+                        @include float-css;
+                        @include common-input-css;
+                        margin-bottom: 12px;
+                    }
+                    .input_ps{
+                        @include float-css;
+                        position: relative;
+                        span{
+                            position: absolute;
+                            right: 15px;
+                            top: 15px;
+                        }
+
+                    }
+
+                }
+                
+                p{
+                    margin: 0px 0px 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    font-size: 14px; 
+                    line-height: 24px;
+                    font-weight: 500;
+                    color: $white;
+                    text-align: left;
+
+                }
+                .cm_save{
+                    @include float-css;
+                    @include common-button-submit-css;
+                    margin: 60px 0px 24px 0px;
+
+                }
+                .custom-checkbox{
+                    @include float-css;
+                    text-align: left;
+                    padding-left: 0px;
+                    
+                    input[type="checkbox"] {
+                        display: none;
+                    }
+
+                    label {
+                        cursor: pointer;
+                        padding: 0px;
+                        min-height: 24px;
+                        min-width:25px;
+                        margin: 0;
+                        padding: 0px 0px 0px 28px;
+                        background: url(images/checkbox.png) no-repeat left center;
+                        font-weight: 500;
+                        font-size: 14px; 
+                        line-height: 24px; 
+                        font-weight: 500; 
+                        color:$white ;
+                        &::before{
+                            display: none;
+                        }
+                        &::after{
+                            display: none;
+                        }
+                    }
+                    
+                    input[type='checkbox']:checked + label {
+                        opacity: 1;
+                        background: url(images/checkbox2.png) no-repeat left center;
+                    }
+                }
+                h4{
+                    @include float-css;
+                    margin: 0px 0px 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    font-size: 14px; 
+                    line-height: 16px;
+                    font-weight: 400;
+                    color: $white;
+                    text-align: left;
+                    a{
+                        font-weight: 400;
+                        color: $white;
+                    }
+
+                }
+            }
+            h3{
+                @include float-css;
+                margin: 0px 0px 0px 0px;
+                padding: 60px 0px 0px 0px;
+                font-size: 14px; 
+                line-height: 16px;
+                font-weight: 400;
+                color: $white;
+                text-align: center;
+                a{
+                    font-weight: 700;
+                    color: $white;
+                }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,144 @@
+.footer_area{
+    @include float-css;
+    
+    .footer-top{
+        padding: 0px 0px 70px 0px;
+        text-align: left;
+        @media only screen and (max-width: 767px){
+            padding: 30px 0px 30px 0px;
+            text-align: center;
+        }
+
+        .text-section{
+            border-top: 1px solid rgba(99, 98, 98, 0.1);
+            border-bottom: 1px solid rgba(99, 98, 98, 0.1);
+            margin: 0px 0px 0px 0px;
+            padding: 60px 0px 60px 0px;
+            margin-bottom: 60px;
+            @media only screen and (max-width: 767px){
+                padding: 30px 0px 30px 0px;
+            }
+            .text-section-inner{
+                max-width: 775px;
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+                p{
+                    margin: 0px 0px 0px 0px;
+                    font-size: 18px; 
+                    line-height: 30px;
+                    font-weight: 400;
+                    color: $white;
+                    text-align: justify;  
+                }
+            }
+
+        }
+        
+        .footer-tittle{
+            font-size: 15px;
+            line-height: 18px;
+            color: $white;
+            font-weight: 700;
+            margin: 0px 0px 9px 0px;
+            text-transform: uppercase;
+        }
+        .footer-list{
+            @media only screen and (max-width: 767px){
+                margin-bottom: 30px;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+
+                li{
+                    font-size: 15px;
+                    line-height: 30px;
+                    color: $white;
+                    font-weight: 400;
+                    margin: 0px 0px 0px 0px;
+                    a{
+                        color: rgba(255, 255, 255, 0.8);
+                    } 
+                }
+            }
+        }
+        
+    }
+    .footer-bottom{
+        padding: 14px 0px 14px 0px;
+        .footer-bottom_inner{
+            border-top: 1px solid rgba(99, 98, 98, 0.1);
+            padding: 40px 0px 15px 0px;
+            .ftr_logo{
+                text-align: left;
+                @media only screen and (max-width: 767px){
+                    text-align: center;
+                }
+            }
+            p{
+                font-size: 14px;
+                line-height: 39px;
+                color: $white;
+                font-weight: 400;
+                margin: 0px 0px 0px 0px;
+                padding: 6px 0px 6px 0px;
+                text-align: center;
+            }
+            .footer-rightBlock{
+                float: right;
+                @media only screen and (max-width: 767px){
+                    float: none;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    text-align: center;
+                }
+                .footer-social-link{
+                    float: left;
+                    display: inline-block;
+                    margin: 0px 0px 0px 0px;
+                    padding: 0px 0px 0px 0px;
+                    @media only screen and (max-width: 767px){
+                        float: none;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                    ul{
+                        margin: 0;
+                        padding: 0;
+                        @media only screen and (max-width: 767px){
+
+                            text-align: center;
+                        }
+        
+                        li{
+                            
+                            margin: 0px 0px 0px 10px;
+                            padding: 0px 0px 0px 0px;
+                            display: inline-block;
+                            
+                            a{
+                                display:block;
+                                width: 39px;
+                                height: 39px;
+                                border-radius: 50%;
+                                border:1px solid $white;
+                                
+                            } 
+                            &.ftr_fb{
+                                background: url(images/ftr-fb.svg) no-repeat center center;
+                            }
+                            &.ftr_ln{
+                                background: url(images/ftr_ln.svg) no-repeat center center;
+                            }
+                            &.ftr_tw{
+                                background: url(images/ftr_tw.svg) no-repeat center center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

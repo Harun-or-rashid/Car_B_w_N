@@ -6,22 +6,23 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "doctrine/dbal": "^3.3",
+        "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.19",
-        "laravel/nova": "3.32.0",
-        "laravel/sanctum": "^3.0",
-        "laravel/socialite": "^5.5",
-        "laravel/tinker": "^2.7"
+        "intervention/image": "^2.7",
+        "laravel/framework": "^9.0",
+        "laravel/sanctum": "^2.14",
+        "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.0",
+        "laravelcollective/html": "^6.3",
+        "maatwebsite/excel": "^3.1",
+        "myclabs/php-enum": "^1.8",
+        "psr/simple-cache": "^1.0",
+        "santigarcor/laratrust": "^7.1",
+        "spatie/laravel-activitylog": "^4.5"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./nova"
-        }
-    ],
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
-        "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -63,10 +64,7 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true

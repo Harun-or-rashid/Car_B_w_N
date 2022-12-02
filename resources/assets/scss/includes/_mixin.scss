@@ -1,0 +1,177 @@
+@mixin Roboto-Condensed {
+    font-family: 'Roboto Condensed', sans-serif;
+    
+}
+@mixin Inter {
+    font-family: 'Inter', sans-serif;  
+}
+@mixin Oswald {
+    font-family: 'Oswald', sans-serif;  
+}
+@mixin float-css {
+    width: 100%;
+    float: left;
+    height: auto;
+    display: block;
+}
+@mixin background-css {
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+@mixin left-center-css {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+@mixin mid-center-css {
+    position: absolute;
+    top: 50%;
+    height: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+}
+@mixin photo-common {
+    position: relative;
+    top: auto;
+    height: auto;
+    left: auto;
+    -webkit-transform:none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform:none;
+    max-height: auto;
+    max-width: auto;
+    border-radius: 0;
+}
+@mixin primary-button{
+    line-height: 46px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: $white;
+    padding: 0px;
+    text-align: center;
+    border:none;
+    box-shadow: none;
+}
+@mixin photo-css{
+    width: 100%;
+    display: block;
+    border-radius: 0px;
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+}
+
+@mixin owl-prev{
+    transition: .3s;
+    position: relative;
+    left: -50px;
+    background: #FFE1CC url(images/left-cl.png) no-repeat center center;
+    background-position: center;
+    margin-right: 0;
+    float: left;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-indent: -999999px;
+    border-radius: 50%;
+
+}
+@mixin owl-next{
+    transition: .3s;
+    background: #FFE1CC url(images/right_cl.png) no-repeat center center;
+    background-position: center;
+    border: none;
+    text-indent: -999999px;
+    float: right;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border-radius: 50%;
+    right: -50px;
+
+}
+
+@mixin common-button-submit-css{
+    box-shadow: none;
+    outline: 0;
+    border:none;
+    height: 56px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $white;
+    background-color: $primary-color;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+
+}
+
+@mixin common-input-css{
+    box-shadow: none;
+    outline: 0;
+    padding-left: 15px;
+    border:none;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 8px;
+    height: 56px;
+    background-color: $dark2;
+    color: $darkGrey;
+}
+
+@mixin common-label{
+    font-size: 16px;
+    line-height: 26px;
+    color: $primary-color;
+    margin-bottom: 5px;
+    font-weight: 400;
+    text-align: left;
+    @include float-css;
+}
+
+@mixin header1{
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: 700;
+    color: $orange3;
+    margin: 0px 0px 0px 0px;
+    @include Roboto-Condensed;
+}
+@mixin header2{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: $orange3;
+    margin: 0px 0px 0px 0px;
+    @include Roboto-Condensed;
+}
+@mixin header3{
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $white;
+    margin: 0px 0px 0px 0px;
+    text-transform: uppercase;
+    @include Roboto-Condensed;
+}

@@ -1,1 +1,1 @@
-import './bootstrap';
+require("./src/main.js");

@@ -1,0 +1,125 @@
+.user-layout {
+    margin-top: 8px;
+    border-radius: 0 !important;
+}
+
+.login-card-body .input-group .input-group-text,
+.register-card-body .input-group .input-group-text {
+    background-color: #e9ecef !important;
+}
+
+.ui-sortable-helper {
+    display: table;
+}
+
+.disabled,
+select.disabled + .select2 {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.custom-file,
+.btn,
+textarea,
+.custom-file-label,
+.input-group-text,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.select2-dropdown,
+input {
+    border-radius: 0 !important;
+}
+
+span.select2.select2-container.select2-container--default {
+    display: block;
+    width: 100% !important;
+}
+
+.form-control:focus {
+    color: #495057;
+    border-color: #3c8dbc;
+    outline: 0;
+    box-shadow: none;
+}
+
+td a.btn {
+    margin-bottom: 2px;
+}
+
+.table th {
+    padding: 0.5rem;
+    vertical-align: middle;
+}
+.table td {
+    padding: 0.3rem;
+    vertical-align: middle;
+}
+.card-body > .table > thead > tr > td,
+.card-body > .table > thead > tr > th {
+    border-top-width: 1px !important;
+    border-bottom-width: 1px !important;
+}
+
+.breadcrumb {
+    display: none !important;
+}
+
+textarea.resize-vertical {
+    resize: vertical;
+}
+
+.allpermissions {
+    font-weight: 600;
+}
+
+.selectrevert {
+    font-size: 14px;
+    margin: 10px;
+}
+
+.revert {
+    font-size: 14px;
+    margin-left: 10px;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+}
+
+.selectrevertcategory label {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.permissionlabel {
+    font-weight: 500;
+}
+
+.checked + .permissionlabel {
+    font-weight: 700 !important;
+}
+
+.unauthorized-page {
+    width: 100%;
+    height: calc(100vh - 131px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 100px;
+}
+.unauthorized-page .headline {
+    font-size: 70px;
+    color: #ea5959;
+    text-transform: uppercase;
+    text-align: center;
+}
+@media (max-width: 575.98px) {
+    .unauthorized-page {
+        padding: 0 70px;
+    }
+    .unauthorized-page .headline {
+        font-size: 40px;
+    }
+}
+.error-page > .headline {
+    margin-top: 0px;
+}
