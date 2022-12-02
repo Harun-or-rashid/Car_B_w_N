@@ -263,78 +263,49 @@
                         </li>
                         @endif
 
-                        @if(Auth::guard('admin')->user()->hasRole('admin') ||
-                               Auth::guard('admin')->user()->hasPermission(['admin-users-create',
-                               'admin-users-read',
-                               'admin-users-update', 'admin-users-delete']))
-                            <li
-                                class="nav-item has-treeview {{ Helper::menuIsOpen(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
-                                <a href="#"
-                                   class="nav-link {{ Helper::menuIsActive(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
-                                    <i class="nav-icon fa-brand fa-product-hunt"></i>
-                                    <p>
-                                        Manage Product
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    @if(Auth::guard('admin')->user()->hasRole('admin') ||
-                                    Auth::guard('admin')->user()->hasPermission(['admin-users-create']))
-                                        <li class="nav-item">
-                                            <a href="{{ route('product.product.create') }}"
-                                               class="nav-link {{ Helper::menuIsActive(['product.product.create']) }}">
-                                                <i class="fas fa-plus nav-icon"></i>
-                                                <p>Product Create</p>
-                                            </a>
-                                        </li>
-                                    @endif
+{{--                        @if(Auth::guard('admin')->user()->hasRole('admin') ||--}}
+{{--                               Auth::guard('admin')->user()->hasPermission(['admin-users-create',--}}
+{{--                               'admin-users-read',--}}
+{{--                               'admin-users-update', 'admin-users-delete']))--}}
+{{--                            <li--}}
+{{--                                class="nav-item has-treeview {{ Helper::menuIsOpen(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">--}}
+{{--                                <a href="#"--}}
+{{--                                   class="nav-link {{ Helper::menuIsActive(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">--}}
+{{--                                    <i class="nav-icon fa-brand fa-product-hunt"></i>--}}
+{{--                                    <p>--}}
+{{--                                        Manage Product--}}
+{{--                                        <i class="right fas fa-angle-left"></i>--}}
+{{--                                    </p>--}}
+{{--                                </a>--}}
+{{--                                <ul class="nav nav-treeview">--}}
+{{--                                    @if(Auth::guard('admin')->user()->hasRole('admin') ||--}}
+{{--                                    Auth::guard('admin')->user()->hasPermission(['admin-users-create']))--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="{{ route('product.product.create') }}"--}}
+{{--                                               class="nav-link {{ Helper::menuIsActive(['product.product.create']) }}">--}}
+{{--                                                <i class="fas fa-plus nav-icon"></i>--}}
+{{--                                                <p>Product Create</p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endif--}}
 
-                                    @if(Auth::guard('admin')->user()->hasRole('admin') ||
-                                    Auth::guard('admin')->user()->hasPermission(['admin-users-read']))
-                                        <li class="nav-item">
-                                            <a href="{{ route('product.product.index') }}"
-                                               class="nav-link {{ Helper::menuIsActive(['product.product.index']) }}">
-                                                <i class="fas fa-list nav-icon"></i>
-                                                <p>Product List</p>
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-                        @if(Auth::guard('admin')->user()->hasRole('admin') ||
-                       Auth::guard('admin')->user()->hasPermission(['admin-users-create',
-                       'admin-users-read',
-                       'admin-users-update', 'admin-users-delete']))
-                            <li
-                                class="nav-item has-treeview {{ Helper::menuIsOpen(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
-                                <a href="{{ route('category.category-item.index') }}"
-                                   class="nav-link {{ Helper::menuIsActive(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
-                                    <i class="nav-icon fas fa-list-alt"></i>
-                                    <p>
-                                        Category
-                                    </p>
-                                </a>
+{{--                                    @if(Auth::guard('admin')->user()->hasRole('admin') ||--}}
+{{--                                    Auth::guard('admin')->user()->hasPermission(['admin-users-read']))--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="{{ route('product.product.index') }}"--}}
+{{--                                               class="nav-link {{ Helper::menuIsActive(['product.product.index']) }}">--}}
+{{--                                                <i class="fas fa-list nav-icon"></i>--}}
+{{--                                                <p>Product List</p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endif--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        @endif--}}
 
 
-                            </li>
-                        @endif
 
 
-                        @if(Auth::guard('admin')->user()->hasRole('admin') ||
-                                  Auth::guard('admin')->user()->hasPermission(['admin-users-create',
-                                  'admin-users-read',
-                                  'admin-users-update', 'admin-users-delete']))
-                            <li
-                                class="nav-item has-treeview {{ Helper::menuIsOpen(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
-                                <a href="{{ route('category.option.index') }}"
-                                   class="nav-link {{ Helper::menuIsActive(['category.option.index']) }}">
-                                    <i class="fas fa-list nav-icon"></i>
-                                    <p> Options</p>
-                                </a>
-
-                            </li>
-                        @endif
 
                     </ul>
                 </nav>
