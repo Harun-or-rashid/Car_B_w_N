@@ -22,6 +22,7 @@ class UserController extends Controller {
     public function index(Request $request) {
         if (Auth::guard('admin')->user()->hasRole('admin') || Auth::guard('admin')->user()->hasPermission(['admin-users-read'])) {
             $users = User::orderBy('id', 'DESC');
+//            dd($users);
 
             if ($request->get('name')) {
                 $users->where('name', 'LIKE', '%' . $request->get('name') . '%');
@@ -34,7 +35,8 @@ class UserController extends Controller {
             if ($request->get('phone')) {
                 $users->where('phone', 'LIKE', '%' . $request->get('phone') . '%');
             }
-
+//            $users = User::orderBy('id', 'DESC');
+//            dd($users);
             $users = $users->paginate(50);
             return view('admin.users.index', compact('users'));
         } else {

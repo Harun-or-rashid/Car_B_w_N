@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -41,18 +41,20 @@ class RegisterController extends Controller {
 
     public function register(Request $request) {
         // Validate the form data
+//        dd($request);
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             // 'phone' => ['required', 'unique:users'],
             // 'location' => ['required'],
-            'term_condition' => ['required'],
+//            'term_condition' => ['required'],
         ]);
 
         $input = $request->all();
         $input['password'] = Hash::make($request->password);
         $input['status'] = 1;
+//        dd($input);
         $user = User::create($input);
         Auth::login($user);
         return redirect()->route('applyNow');

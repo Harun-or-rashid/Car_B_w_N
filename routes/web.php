@@ -32,8 +32,12 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');
 
 //User/Parent panel
-Route::domain(env('APP_DOMAIN_URL'))->group(function () {
-        Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');
+//Route::domain(env('APP_DOMAIN_URL'))->group(function () {
+Route::group([
+    'namespace' => 'User',
+    'prefix' => 'users',
+], function () {
+//        Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');
 
     Route::get('login', [UserLoginController::class,'showLogin'])->name('login');
     Route::post('login', [UserLoginController::class,'login'])->name('login');
