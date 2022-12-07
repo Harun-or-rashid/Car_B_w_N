@@ -262,6 +262,45 @@
                             </ul>
                         </li>
                         @endif
+                        @if(Auth::guard('admin')->user()->hasRole('admin') ||
+                        Auth::guard('admin')->user()->hasPermission(['admin-users-create',
+                        'admin-users-read',
+                        'admin-users-update', 'admin-users-delete']))
+                        <li
+                            class="nav-item has-treeview {{ Helper::menuIsOpen(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
+                            <a href="#"
+                                class="nav-link {{ Helper::menuIsActive(['admin.users.index', 'admin.users.create', 'admin.users.edit', 'admin.users.show']) }}">
+                                <i class="nav-icon fas fa-dollar-sign"></i>
+                                <p>
+                                    Income Management
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                @if(Auth::guard('admin')->user()->hasRole('admin') ||
+                                Auth::guard('admin')->user()->hasPermission(['admin-users-create']))
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.users.create') }}"
+                                        class="nav-link {{ Helper::menuIsActive(['admin.users.create']) }}">
+                                        <i class="fas fa-plus nav-icon"></i>
+                                        <p>Generate Income</p>
+                                    </a>
+                                </li>
+                                @endif
+
+                                @if(Auth::guard('admin')->user()->hasRole('admin') ||
+                                Auth::guard('admin')->user()->hasPermission(['admin-users-read']))
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.users.index') }}"
+                                        class="nav-link {{ Helper::menuIsActive(['users.index']) }}">
+                                        <i class="fas fa-list nav-icon"></i>
+                                        <p>Income List</p>
+                                    </a>
+                                </li>
+                                @endif
+                            </ul>
+                        </li>
+                        @endif
 
 {{--                        @if(Auth::guard('admin')->user()->hasRole('admin') ||--}}
 {{--                               Auth::guard('admin')->user()->hasPermission(['admin-users-create',--}}
@@ -318,7 +357,7 @@
         @yield('content')
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Developed by <a href="http://annanovas.com/">Annanovas IT LTD</a>.</strong>
+            <strong>Developed by <a href="http://nextech.com.bd/">Nextech LTD</a>.</strong>
             All rights reserved.
         </footer>
 

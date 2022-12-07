@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-md-6">
-                    <h1 class="m-0 text-dark">Admin Create</h1>
+                    <h1 class="m-0 text-dark">User Create</h1>
                 </div><!-- /.col -->
                 <div class="col-md-6">
 
@@ -30,19 +30,19 @@
             <div class="row">
                 <div class="col-lg-12">
                     @include('include.error')
-                    {!! Form::open(['route' => 'admin.admins.store', 'method' =>'post']) !!}
+                    {!! Form::open(['route' => 'admin.users.store', 'method' =>'post']) !!}
                     <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">New Admin Info</h3>
+                            <h3 class="card-title">New User Info</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        {!! Form::label('role_id', 'Role') !!}
-                                        {!! Form::select('role_id', [''=>'Choose an option']+$roles, null,
-                                        ['class'=>'form-control multi-select']) !!}
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        {!! Form::label('role_id', 'Role') !!}--}}
+{{--                                        {!! Form::select('role_id', [''=>'Choose an option']+$roles, null,--}}
+{{--                                        ['class'=>'form-control multi-select']) !!}--}}
+{{--                                    </div>--}}
 
                                     <div class="form-group">
                                         {!! Form::label('name', 'Name') !!}
@@ -85,60 +85,60 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="permission" style="display:{{ $display }}">
-                            <div class="card-header pb-0 border-0">
-                                <h3 class="card-title">
-                                    <span class="allpermissions">Permissions</span>
+{{--                        <div class="permission" style="display:{{ $display }}">--}}
+{{--                            <div class="card-header pb-0 border-0">--}}
+{{--                                <h3 class="card-title">--}}
+{{--                                    <span class="allpermissions">Permissions</span>--}}
 
-                                    <div class="selectrevert icheck-primary d-inline">
-                                        <input type="checkbox" id="selectAll">
-                                        <label for="selectAll">Select All</label>
-                                    </div>
-                                    <div class="revert icheck-primary d-inline">
-                                        <input type="checkbox" id="selectRevert">
-                                        <label for="selectRevert">Select Revert</label>
-                                    </div>
+{{--                                    <div class="selectrevert icheck-primary d-inline">--}}
+{{--                                        <input type="checkbox" id="selectAll">--}}
+{{--                                        <label for="selectAll">Select All</label>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="revert icheck-primary d-inline">--}}
+{{--                                        <input type="checkbox" id="selectRevert">--}}
+{{--                                        <label for="selectRevert">Select Revert</label>--}}
+{{--                                    </div>--}}
 
-                                </h3>
-                            </div>
+{{--                                </h3>--}}
+{{--                            </div>--}}
 
-                            <div class="card-body">
-                                @foreach($permissionGroups as $permissionGroup)
-                                <div class="card-header border-0 pb-0">
-                                    <h3 class="card-title">
-                                        <span class="permissionscategory">{{ $permissionGroup->name }}
-                                        </span>
-                                        <div class="selectrevertcategory icheck-primary d-inline">
-                                            <input type="checkbox" id="selectCategotyAll{{ $permissionGroup->id }}"
-                                                class="selectcategory">
-                                            <label for="selectCategotyAll{{ $permissionGroup->id }}">Select
-                                                All</label>
-                                        </div>
+{{--                            <div class="card-body">--}}
+{{--                                @foreach($permissionGroups as $permissionGroup)--}}
+{{--                                <div class="card-header border-0 pb-0">--}}
+{{--                                    <h3 class="card-title">--}}
+{{--                                        <span class="permissionscategory">{{ $permissionGroup->name }}--}}
+{{--                                        </span>--}}
+{{--                                        <div class="selectrevertcategory icheck-primary d-inline">--}}
+{{--                                            <input type="checkbox" id="selectCategotyAll{{ $permissionGroup->id }}"--}}
+{{--                                                class="selectcategory">--}}
+{{--                                            <label for="selectCategotyAll{{ $permissionGroup->id }}">Select--}}
+{{--                                                All</label>--}}
+{{--                                        </div>--}}
 
-                                    </h3>
-                                </div>
+{{--                                    </h3>--}}
+{{--                                </div>--}}
 
-                                <div class="card-body">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            @foreach($permissionGroup->permissions as $permission)
-                                            <div class="col-md-3">
-                                                <div class="icheck-primary d-inline">
-                                                    {!! Form::checkbox('permissions[]', $permission->id, null
-                                                    ,['class'=>'check','id'=>'checkboxPermission' . $permission->id])
-                                                    !!}
-                                                    {!! Form::label('checkboxPermission' . $permission->id,
-                                                    $permission->display_name,['class'=>'permissionlabel',
-                                                    'style'=>'padding-left:5px;margin-top:10px;']) !!}
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="row">--}}
+{{--                                            @foreach($permissionGroup->permissions as $permission)--}}
+{{--                                            <div class="col-md-3">--}}
+{{--                                                <div class="icheck-primary d-inline">--}}
+{{--                                                    {!! Form::checkbox('permissions[]', $permission->id, null--}}
+{{--                                                    ,['class'=>'check','id'=>'checkboxPermission' . $permission->id])--}}
+{{--                                                    !!}--}}
+{{--                                                    {!! Form::label('checkboxPermission' . $permission->id,--}}
+{{--                                                    $permission->display_name,['class'=>'permissionlabel',--}}
+{{--                                                    'style'=>'padding-left:5px;margin-top:10px;']) !!}--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            @endforeach--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
 

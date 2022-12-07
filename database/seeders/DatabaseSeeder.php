@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
         $this->call(PermissionTableSeeder::class);
-		$admin = Admin::where('email', 'admin@annanovas.com')->get();
+		$admin = Admin::where('email', 'admin@admin.com')->get();
 		if ($admin->count() == 0) {
 			$admin = Admin::create([
 				'name' => 'Admin',
 				'role_id' => 1,
-				'email' => 'admin@annanovas.com',
+				'email' => 'admin@admin.com',
 				'email_verified_at' => Carbon::now(),
 				'password' => bcrypt('111111'),
 				'status' => 1,
