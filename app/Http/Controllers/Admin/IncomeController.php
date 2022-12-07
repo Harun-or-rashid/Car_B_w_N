@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Income;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IncomeController extends Controller
 {
@@ -12,10 +14,31 @@ class IncomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(Request $request) {
+        if (Auth::guard('admin')->user()->hasRole('admin') || Auth::guard('admin')->user()->hasPermission(['admin-users-read'])) {
+            $income = Income::orderBy('id', 'DESC');
+//            dd($users);
+
+            if ($request->get('name')) {
+                $income->where('name', 'LIKE', '%' . $request->get('name') . '%');
+            }
+
+            if ($request->get('email')) {
+                $income->where('email', 'LIKE', '%' . $request->get('email') . '%');
+            }
+
+            if ($request->get('phone')) {
+                $income->where('phone', 'LIKE', '%' . $request->get('phone') . '%');
+            }
+//            $users = User::orderBy('id', 'DESC');
+//            dd($users);
+            $income = $income->paginate(50);
+            return view('admin.incomes.index', compact('income'));
+        } else {
+            return view('error.admin-unauthorized');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

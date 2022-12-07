@@ -3,8 +3,9 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPermissionGroupController;
+use App\Http\Controllers\Admin\IncomeController;
 use App\Http\Controllers\Admin\ResetPasswordController;
-use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Category\CategoryItemController;
 use App\Http\Controllers\Category\CategoryOptionController;
 use App\Http\Controllers\Category\CategoryOptionItemController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductPriceController;
 use App\Http\Controllers\User\ForgotPasswordController;
 use App\Http\Controllers\User\RegisterController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\UserLoginController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
@@ -112,9 +112,11 @@ Route::group([
 //        Route::resource('users', UserController::class);
         //phpinfo
         Route::get('phpinfo',  [AdminController::class,'phpinfo']);
+        Route::resource('income',IncomeController::class);
     });
 
     //end admin
+
 
     Route::group([
         'namespace' => 'Category',

@@ -280,8 +280,8 @@
                                 @if(Auth::guard('admin')->user()->hasRole('admin') ||
                                 Auth::guard('admin')->user()->hasPermission(['admin-users-create']))
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.users.create') }}"
-                                        class="nav-link {{ Helper::menuIsActive(['admin.users.create']) }}">
+                                    <a href="{{ route('admin.income.index') }}"
+                                        class="nav-link {{ Helper::menuIsActive(['admin.income.index']) }}">
                                         <i class="fas fa-plus nav-icon"></i>
                                         <p>Generate Income</p>
                                     </a>
@@ -291,8 +291,8 @@
                                 @if(Auth::guard('admin')->user()->hasRole('admin') ||
                                 Auth::guard('admin')->user()->hasPermission(['admin-users-read']))
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.users.index') }}"
-                                        class="nav-link {{ Helper::menuIsActive(['users.index']) }}">
+                                    <a href="{{ route('admin.income.index') }}"
+                                        class="nav-link {{ Helper::menuIsActive(['income.index']) }}">
                                         <i class="fas fa-list nav-icon"></i>
                                         <p>Income List</p>
                                     </a>
