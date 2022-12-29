@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use Carbon\Carbon;
+use Database\Seeders\IncomeTypeSeeder;
 use Database\Seeders\PermissionTableSeeder;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,7 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
         $this->call(PermissionTableSeeder::class);
+        $this->call(IncomeTypeSeeder::class);
 		$admin = Admin::where('email', 'admin@admin.com')->get();
 		if ($admin->count() == 0) {
 			$admin = Admin::create([

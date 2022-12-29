@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', "Admin")
+@section('title', "Income")
 @push('css')
 <!-- input partial css here -->
 <style>
@@ -12,7 +12,7 @@
     <div class="content-header">
 
         <div class="container-fluid">
-            <h1 class=" text-dark">Category</h1>
+            <h1 class=" text-dark">Income Generate</h1>
 
             <div class="row mt-2">
                 <div class="col-md-12">
@@ -20,7 +20,7 @@
                     @include('include.flashMessage')
                     <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Create Category</h3>
+                            <h3 class="card-title">Generate Income</h3>
                         </div>
                         @include('include.error')
 
@@ -30,30 +30,38 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {!! Form::label('name', 'Name') !!}
-                                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
+                                        {!! Form::label('income_type_id', 'Income Type') !!}
+                                        {!! Form::select('income_type_id', [''=>'Choose a Income Type']+$type, null,
+                                        ['class'=>'form-control multi-select ']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        {!! Form::label('inc_date', 'Date') !!}
+                                        {!! Form::date('inc_date', null, ['class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {!! Form::label('description', 'Description') !!}
-                                        {!! Form::text('description', null, ['class'=>'form-control']) !!}
+                                        {!! Form::label('amount', 'Amount') !!}
+                                        {!! Form::number('amount', null, ['class'=>'form-control']) !!}
                                     </div>
                                 </div>
-                                <div class="col-md-1 form-group d-flex" style="    margin: 29px 5px 0px 20px;" >
-                                    <div>
-                                        {!! Form::checkbox('status', '1', 1, ['id'=>'status',
-                                               'class'=>'form-control'])
-                                               !!}
-                                    </div>
+{{--                                <div class="col-md-1 form-group d-flex" style="    margin: 29px 5px 0px 20px;" >--}}
+{{--                                    <div>--}}
+{{--                                        {!! Form::checkbox('status', '1', 1, ['id'=>'status',--}}
+{{--                                               'class'=>'form-control'])--}}
+{{--                                               !!}--}}
+{{--                                    </div>--}}
 
-                                    <div class="icheck-primary form-group"  >
-                                        {!! Form::label('status', '&nbsp;Active') !!}
-                                    </div>
-                                </div>
+{{--                                    <div class="icheck-primary form-group"  >--}}
+{{--                                        {!! Form::label('status', '&nbsp;Active') !!}--}}
+{{--                                    </div>--}}
                                 <div class="col-md-2 form-group">
-                                    <button  type="submit"  class=" btn btn-primary" style="margin: 32px -2px ;"> Create </button>
+                                    <button  type="submit"  class=" btn btn-primary" style="margin: 32px -2px ;"> Save </button>
                                 </div>
+                                </div>
+
 
                                 <!-- /.row -->
 
@@ -84,19 +92,19 @@
                 <div class="col-lg-12">
                     <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Category List</h3>
+                            <h3 class="card-title">Income List</h3>
                         </div>
                         {!! Form::open(['method'=>'GET', 'action'=>['Admin\IncomeController@index']]) !!}
 
                         <div class="card-body">
                             <div class="row">
 
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        {!! Form::label('name', 'Name') !!}
-                                        {!! Form::text('name', request()->name, ['class'=>'form-control']) !!}
-                                    </div>
-                                </div>
+{{--                                <div class="col-md-3">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        {!! Form::label('name', 'Name') !!}--}}
+{{--                                        {!! Form::text('name', request()->name, ['class'=>'form-control']) !!}--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                                <div class="col-md-3">--}}
 {{--                                    <div class="form-group">--}}
 {{--                                        {!! Form::label('description', 'Description') !!}--}}
@@ -114,7 +122,7 @@
 {{--                                </div>--}}
 
                                 <!-- /.col -->
-                                <button type="submit" class="btn btn-primary" style="margin: 32px -2px ;"> Filter </button>
+{{--                                <button type="submit" class="btn btn-primary" style="margin: 32px -2px ;"> Filter </button>--}}
 
                             </div>
                             <!-- /.row -->
@@ -125,22 +133,21 @@
                             <table class="table table-bordered   table-hover">
                                 <thead>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Slug</th>
-                                <th>Description</th>
-                                <th>Status</th>
+                                <th>Income Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th class="text-center">Actions</th>
                                 </thead>
                                 <tbody>
-                                @foreach ($categoryItem as $item)
+                                @foreach ($income as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->slug }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td class="text-center">{!! Helper::activeStatusLabel($item->status) !!}</td>
+                                        <td>{{ $item->types[0]->name}}</td>
+                                        <td>{{ $item->amount }}</td>
+                                        <td>{{ $item->inc_date }}</td>
+{{--                                        <td class="text-center">{!! Helper::activeStatusLabel($item->status) !!}</td>--}}
                                         <td>{{ $item->created_at->diffForHumans() }}</td>
                                         <td>{{ $item->updated_at->diffForHumans() }}</td>
                                         <td class="row text-center">

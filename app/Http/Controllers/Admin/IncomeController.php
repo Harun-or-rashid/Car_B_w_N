@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Income;
+use App\Models\IncomeType;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 
 class IncomeController extends Controller
 {
@@ -17,6 +21,7 @@ class IncomeController extends Controller
     public function index(Request $request) {
         if (Auth::guard('admin')->user()->hasRole('admin') || Auth::guard('admin')->user()->hasPermission(['admin-users-read'])) {
             $income = Income::orderBy('id', 'DESC');
+            $type =  IncomeType::where('status', 1)->pluck('name', 'id')->all();
 //            dd($users);
 
             if ($request->get('name')) {
@@ -33,7 +38,7 @@ class IncomeController extends Controller
 //            $users = User::orderBy('id', 'DESC');
 //            dd($users);
             $income = $income->paginate(50);
-            return view('admin.incomes.index', compact('income'));
+            return view('incomes.index', compact('income','type'));
         } else {
             return view('error.admin-unauthorized');
         }
@@ -56,10 +61,35 @@ class IncomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+//        if (Auth::guard('admin')->user()->hasRole('admin') || Auth::guard('admin')->user()->hasPermission(['admin-admins-create'])) {
+        $messages = [
+            'inc_type.required' => 'The Income Type field is required',
+            'amount.required' => 'The Income Amount field is required',
+            'inc_date.required' => 'The Date field is required',
+        ];
+
+        $this->validate($request, [
+            'income_type_id' => 'required',
+            'amount' => 'required',
+            'inc_date' => 'required',
+        ], $messages);
+        $input = $request->all();
+//            dd($input);
+
+
+        $input['user_id'] = Auth::guard('admin')->user()->id;
+        $income = Income::create($input);
+
+
+        Session::flash('success', 'The Income has been Generated');
+
+        return redirect()->back();
+//        } else {
+//            return view('error.admin-unauthorized');
+//        }
     }
+
 
     /**
      * Display the specified resource.
