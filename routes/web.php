@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 //Route::domain(env('APP_DOMAIN_URL'))->group(function () {
 Route::group([
     'namespace' => 'User',
-    'prefix' => 'users',
+    'prefix' => 'user',
 ], function () {
 //        Route::get('/{any}', [ApplicationController::class, 'index'])->where('any', '.*');
 
