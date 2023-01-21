@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('income_type_id');
             $table->unsignedBigInteger('user_id');
+            $table->string('image');
             $table->date('inc_date');
             $table->double('amount',8,2);
             $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();

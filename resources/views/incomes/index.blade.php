@@ -24,7 +24,7 @@
                         </div>
                         @include('include.error')
 
-                        {!! Form::open(['route' => 'admin.income.store', 'method' =>'post']) !!}
+                        {!! Form::open(['route' => 'admin.income.store', 'method' =>'post','enctype' => 'multipart/form-data']) !!}
 
                         <div class="card-body">
                             <div class="row">
@@ -45,6 +45,12 @@
                                     <div class="form-group">
                                         {!! Form::label('amount', 'Amount') !!}
                                         {!! Form::number('amount', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        {!! Form::label('image', 'Image') !!}
+                                        <input type="file" name="image[]" multiple>
                                     </div>
                                 </div>
 {{--                                <div class="col-md-1 form-group d-flex" style="    margin: 29px 5px 0px 20px;" >--}}
